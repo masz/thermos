@@ -175,12 +175,39 @@ footer h3 {
     color: white;
 }
 
+/* flashes */
+.flashes ul {
+    margin: 0 0;
+    background: #ffd6a3;
+    color: #000;
 
+    list-style-type: none;
+    list-style: none;
+}
 
+article.flashes {
+    margin-bottom: 1em;
+}
 
+/* FORM */
 
+.error, .error input {
+color: red;
+}
 
+tr.error td ul {
+margin-top: 0;
+list-style-type: none;
+list-style: none;
+}
 
+tr.submit button {
+margin-top: 20px;
+}
+
+input, button {
+margin-left: 10px;
+}
 
 
 /* ==========================================================================
