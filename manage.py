@@ -1,18 +1,35 @@
 #!/usr/bin/env python
 
 from thermos import app, db
-from thermos.models import User
+from thermos.models import User, Bookmark, Tag
 from flask_script import Manager, prompt_bool
+from flask_migrate import Migrate, MigrateCommand
 
 manager = Manager(app)
+migrate = Migrate(app, db)
+
+manager.add_command('db', MigrateCommand)
 
 
 @manager.command
-def initdb():
-    db.create_all()
-    db.session.add(User(username="mickey", email="mickey@mouse.com", password="test"))
-    db.session.add(User(username="minnie", email="minnie@mouse.com", password="test"))
+def insert_data():
+    mickey = User(username="mickey", email="mickey@mouse.com", password="test")
+    db.session.add(mickey)
+
+    minnie = User(username="minnie", email="minnie@mouse.com", password="test")
+    db.session.add(minnie)
+
+    tag1 = Tag(name="news")
+    db.session.add(tag1)
+
+    tag2 = Tag(name="music")
+    db.session.add(tag2)
+
+    db.session.add(Bookmark(url="https://www.cnn.com", description="cnn", user=mickey, tags="news"))
+    db.session.add(Bookmark(url="https://www.mtv.com", description="mtv", user=minnie, tags="music, news"))
+
     db.session.commit()
+
     print('Initialized the database')
 
 

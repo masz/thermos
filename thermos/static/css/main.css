@@ -170,6 +170,18 @@ h1, h2, h3, h4, h5, h6 {
     color: #1e5373;
 }
 
+aside a {
+    color: #ffd6a3;
+}
+
+aside a:hover {
+    color: #f5bb73;
+}
+
+aside a:visited {
+    color: #d39447;
+}
+
 .main aside h3,
 footer h3 {
     color: white;
@@ -214,6 +226,12 @@ ul.bookmarks {
     padding-left: 0;
 }
 ul.bookmarks li {
+    padding-bottom: .5em;
+    border-top: 1px solid #7ea6bf;
+    padding: 1em 0;
+}
+
+.bookmark {
     padding-bottom: .5em;
     border-top: 1px solid #7ea6bf;
     padding: 1em 0;
