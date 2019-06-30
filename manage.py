@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+import os
 
-from thermos import app, db
+from thermos import create_app, db
 from thermos.models import User, Bookmark, Tag
 from flask_script import Manager, prompt_bool
 from flask_migrate import Migrate, MigrateCommand
 
+app = create_app(os.getenv('THERMOS_ENV') or 'dev')
 manager = Manager(app)
 migrate = Migrate(app, db)
 
